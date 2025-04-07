@@ -1,0 +1,41 @@
+{
+  "name": "data-drive",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A simple file hosting site.",
+  "main": "app.ts",
+  "scripts": {
+    "dev": "tsx watch app.ts",
+    "build": "tsc",
+    "start": "tsc && node dist/app.js",
+    "lint": "eslint",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^9.24.0",
+    "@tsconfig/node20": "^20.1.5",
+    "@types/express": "^5.0.1",
+    "@types/node": "^22.14.0",
+    "eslint": "^9.24.0",
+    "eslint-config-prettier": "^10.1.1",
+    "prettier": "^3.5.3",
+    "prisma": "^6.5.0",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.29.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.5.0",
+    "@quixo3/prisma-session-store": "^3.1.13",
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "express-session": "^1.18.1",
+    "express-validator": "^7.2.1",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0"
+  }
+}
