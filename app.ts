@@ -6,6 +6,7 @@ import path from "path";
 import indexRoute from "./routes/index.route";
 import loginRoute from "./routes/login.route";
 import signupRoute from "./routes/signup.route";
+import successRoute from "./routes/success.route";
 
 const app = express();
 
@@ -27,6 +28,7 @@ app.use(express.json());
 app.use("/", indexRoute);
 app.use("/login", loginRoute);
 app.use("/signup", signupRoute);
+app.use("/success", successRoute);
 
 // SERVER
 const PORT = Number(process.env.SEVER_PORT) || 3000;

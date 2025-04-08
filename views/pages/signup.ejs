@@ -9,13 +9,16 @@
         type="text" 
         id="name" 
         name="name" 
-        value="" 
+        value="<%= locals.formValues && formValues.name ? formValues.name : ''; %>" 
         minlength="2" 
         maxlength="70" 
         required 
         placeholder="John Doe"
-        class="form__input"
+        class="form__input <%= locals.formErrors && formErrors.name ? 'from__input--error' : ''; %>"
       >
+      <% if (locals.formErrors && formErrors.name) { %>
+      <label for="name" class="form__label form__label--error"><%= formErrors.name.msg %></label>
+      <% } %>
     </p>
     <p class="form__input-wrapper">
       <label for="email" class="form__label">Email Address</label>
@@ -23,11 +26,14 @@
         type="email"
         id="email"
         name="email"
-        values=""
+        value="<%= locals.formValues && formValues.email ? formValues.email : ''; %>" 
         required
         placeholder="john@gmail.com"
-        class="form__input"
+        class="form__input <%= locals.formErrors && formErrors.email ? 'from__input--error' : ''; %>"
       >
+      <% if (locals.formErrors && formErrors.email) { %>
+      <label for="name" class="form__label form__label--error"><%= formErrors.email.msg %></label>
+      <% } %>
     </p>
     <p class="form__input-wrapper">
       <label for="password" class="form__label">Password</label>
@@ -35,27 +41,33 @@
         type="text"
         id="password"
         name="password"
-        value=""
+        value="<%= locals.formValues && formValues.password ? formValues.password : ''; %>" 
         minlength="8"
         maxlength="32"
         required
-        class="form__input"
+        class="form__input <%= locals.formErrors && formErrors.password ? 'from__input--error' : ''; %>"
       >
+      <% if (locals.formErrors && formErrors.password) { %>
+      <label for="name" class="form__label form__label--error"><%= formErrors.password.msg %></label>
+      <% } %>
     </p>
     <p class="form__input-wrapper">
       <label for="confirm-password" class="form__label">Confirm Password</label>
       <input 
-        type="text"
+        type="password"
         id="confirm-password"
         name="confirmedPassword"
-        value=""
+        value="<%= locals.formValues && formValues.confirmedPassword ? formValues.confirmedPassword : ''; %>" 
         minlength="8"
         maxlength="32"
         required
-        class="form__input"
+        class="form__input <%= locals.formErrors && formErrors.confirmedPassword ? 'from__input--error' : ''; %>"
       >
+      <% if (locals.formErrors && formErrors.confirmedPassword) { %>
+      <label for="name" class="form__label form__label--error"><%= formErrors.confirmedPassword.msg %></label>
+      <% } %>
     </p>
-    <p class="form__warning-text">** <strong>DO NOT FORGET</strong>  your email and password! We do not have any service active to retrive lost email and passowrd.</p>
+    <p class="form__warning-text">** <strong>DO NOT FORGET</strong>  your email and password! We do not have any service active to retrive lost email and password.</p>
     <button type="submit" class="btn btn--submit">Sign up</button>
   </form>
 
