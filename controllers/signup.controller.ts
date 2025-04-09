@@ -14,13 +14,13 @@ export const renderSignupPage: RequestHandler = (req, res) => {
   res.render("root", {
     title: "Sign up | Data Drive",
     page: "signup",
-    formValues: req.session.formvalues || {},
-    formErrors: req.session.formErrors || {},
+    formValues: req.session.formValues,
+    formErrors: req.session.formErrors,
   });
 
   // clear session datas
   req.session.formErrors = undefined;
-  req.session.formvalues = undefined;
+  req.session.formValues = undefined;
 };
 
 export const handleSignupPost: RequestHandler[] = [
@@ -33,7 +33,7 @@ export const handleSignupPost: RequestHandler[] = [
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
-      req.session.formvalues = req.body;
+      req.session.formValues = req.body;
       req.session.formErrors = errors.mapped();
 
       return res.status(400).redirect("/signup");

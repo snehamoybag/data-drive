@@ -2,16 +2,16 @@
   <h1 class="title title--primary">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni, ea.</h1>
   <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam omnis possimus, rem repellat tenetur dolores quam quod provident similique quia magni! Odit vitae id nobis adipisci cumque iure iusto. Commodi?</p>
 
-  <form action="/loign" method="post" class="form">
+  <form action="/login" method="post" class="form">
     <p class="form__input-wrapper">
       <label for="email" class="form__label">Email address</label>
       <input 
         type="email" 
         id="email"
         name="email" 
-        value="<%= locals.fieldValues && fieldValues.email ? fieldValues.email : ''; %>" 
+        value="<%= locals.formValues && formValues.email ? formValues.email : ''; %>" 
         required
-        class="form__input"
+        class="form__input <%= locals.formErrors ? 'form__input--error' : ''; %>"
       >
     </p>
     <p class="form__input-wrapper">
@@ -20,11 +20,14 @@
         type="password" 
         id="passwoed"
         name="password"
-        value="<%= locals.fieldValues && fieldValues.password ? fieldValues.password : ''; %>"
-        class="form__input"
+        value="<%= locals.formValues && formValues.password ? formValues.password : ''; %>"
+        class="form__input <%= locals.formErrors ? 'form__input--error' : ''; %>"
         required
       >
     </p>
+    <% if (locals.formErrors) { %>
+      <p class="form__label--error"><%= formErrors.auth %></p>
+    <% } %>
     <button type="submit" class="btn btn--submit">Log in</button>
   </form>
   <p>Not a member yet? <a href="/signup">Sign up</a>.</p>

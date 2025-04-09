@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= locals.name %></title>
+    <link href="/styles/error.css" rel="stylesheet">
+  </head>
+  <body>
+    <main>
+      <h1><%= statusCode %> : <%= name %></h1>
+      <p><%= message %></p>
+      <a href="<%= redirect.path %>"><%= redirect.text %></a>
+    </main>
+  </body>
+</html>
