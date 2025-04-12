@@ -27,12 +27,12 @@ const errorRequestHandler: ErrorRequestHandler = (err, req, res, next) => {
   // although some properties can be missing
   const data: ErrorPageData = {
     name: err.name || "UnknownError",
-    statusCode: Number(err.statusCode) || 500,
+    statusCode: Number(err.status) || 500,
     message: err.message || "An unknown internal server error has occured.",
     redirect,
   };
 
-  return res.status(err.statusCode || 500).render("error", data);
+  return res.status(err.status || 500).render("error", data);
 };
 
 export default errorRequestHandler;

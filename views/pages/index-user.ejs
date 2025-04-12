@@ -6,3 +6,13 @@
     <button type="submit" class="btn btn--logout">Log out</button>
   </form>
 </section>
+<section>
+  <h2>Upload a file</h2>
+  <form action="/upload" method="post" enctype="multipart/form-data">
+    <p class="form__input-wrapper">
+      <input type="file" name="files" id="files" required class="form__input form__input--upload">
+    </p>
+    <button type="submit" class="btn btn--submit">Upload</button>
+</form>
+</section>
+

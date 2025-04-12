@@ -2,6 +2,7 @@ import "dotenv/config";
 import express from "express";
 import session from "./configs/session.config";
 import path from "path";
+import passport from "./configs/passport.config";
 
 import indexRoute from "./routes/index.route";
 import signupRoute from "./routes/signup.route";
@@ -10,7 +11,8 @@ import logoutRoute from "./routes/logout.route";
 import successRoute from "./routes/success.route";
 import errorRequestHandler from "./middlewares/error-request-handler.middleware";
 import handler404 from "./middlewares/404-handler.middleware";
-import passport from "./configs/passport.config";
+import uploadRoute from "./routes/upload.route";
+import foldersRoute from "./routes/folders.route";
 
 const app = express();
 
@@ -35,6 +37,8 @@ app.use("/signup", signupRoute);
 app.use("/login", loginRoute);
 app.use("/logout", logoutRoute);
 app.use("/success", successRoute);
+app.use("/upload", uploadRoute);
+app.use("/*folder", foldersRoute); /* home is the root directory */
 
 // REQUEST ERROR HANDLER
 app.use(errorRequestHandler);

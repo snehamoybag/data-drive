@@ -63,7 +63,7 @@ passport.deserializeUser(async (userId, done) => {
     });
 
     if (!user) {
-      new Error(`User with ID ${userId}, doesn't exist in database.`);
+      throw new Error(`User with ID ${userId}, doesn't exist in database.`);
     }
 
     return done(null, user);
